@@ -1,0 +1,258 @@
+@import vars
+
+.moving-car
+    position: relative
+    display: inline-block
+    width: 50%
+    height: 400px
+    margin: 40px 0 100px 15%
+    float: left
+    .ground
+        position: absolute
+        bottom: 0
+        width: 100%
+        max-width: 470px
+        height: 8px
+        background: #4CA653
+        z-index: 3
+    .sign
+        position: absolute
+        width: 100px
+        height: 350px
+        background: transparent
+        bottom: 0
+        left: 375px
+        z-index: 2
+        .square
+            position: relative
+            width: 100px
+            height: 100px
+            background: #FFC137
+            top: 0
+            transform: rotate(45deg)
+            z-index: 2
+        .prop
+            position: relative
+            width: 10px
+            height: 250px
+            background: #ccc
+            bottom: 0
+            left: 50%
+            transform: translate(-50%, 0)
+            z-index: 1
+    .sun
+        position: absolute
+        width: 200px * 2
+        height: 200px
+        border-top-left-radius: 200px * 2
+        border-top-right-radius: 200px * 2
+        background: #FFC137
+        bottom: 0
+        left: 30px
+        z-index: 1
+    .wheels
+        position: absolute
+        width: 300px
+        height: 40px
+        bottom: 8px
+        left: 40px
+        z-index: 2
+        %wheel
+            position: relative
+            display: inline-block
+            width: 50px
+            height: 40px
+            border-bottom-left-radius: 8px
+            border-bottom-right-radius: 8px
+            background: #333
+        .wheel-left
+            @extend %wheel
+            float: left
+            left: 15px
+        .wheel-right
+            @extend %wheel
+            float: right
+            right: 15px
+    .car-body
+        position: absolute
+        width: 350px
+        height: 110px
+        bottom: 43px
+        left: 15px
+        background: #156983
+        border-top-left-radius: 50px
+        border-top-right-radius: 50px
+        border-bottom-left-radius: 20px
+        border-bottom-right-radius: 20px
+        z-index: 4
+        +keyframes(moveCarBody)
+            0%
+                bottom: 43px
+            50%
+                bottom: 48px
+            100%
+                bottom: 37px
+        animation: moveCarBody 1s infinite alternate
+        .lights
+            position: relative
+            width: 300px
+            height: 30px
+            top: 30%
+            left: 25px
+            %light
+                position: absolute
+                width: 30px
+                height: 30px
+                border-radius: 50%
+                background: white
+            .light-left
+                @extend %light
+                left: 15px
+            .light-right
+                @extend %light
+                right: 15px
+        .indicators
+            position: relative
+            width: 300px
+            height: 10px
+            top: 50%
+            left: 25px
+            %indicator
+                position: absolute
+                width: 30px
+                height: 10px
+                border-radius: 4px
+                background: white
+            .indicator-left
+                @extend %indicator
+                left: 15px
+            .indicator-right
+                @extend %indicator
+                right: 15px
+    .car-upper
+        position: absolute
+        width: 240px
+        height: 90px
+        background: transparent
+        border: 12px solid #237d99
+        border-top-left-radius: 50%
+        border-top-right-radius: 50% 
+        bottom: 153px
+        left: 60px
+        overflow: hidden
+        z-index: 4
+        +keyframes(moveCarUpper)
+            0%
+                bottom: 153px
+            50%
+                bottom: 158px
+            100%
+                bottom: 147px
+        animation: moveCarUpper 1s infinite alternate
+        &:hover
+            .buddy
+                .mouth
+                    height: 6px
+                    width: 6px
+                    border-radius: 50%
+                    margin-left: auto
+                    margin-right: auto
+        .driver-mirror
+            position: relative
+            width: 55px
+            height: 15px
+            border-radius: 4px
+            background: #DDD
+            left: 50%
+            top: 8%
+            transform: translate(-50%, 0)
+
+        .buddy
+            position: relative
+            float: right
+            width: 70px
+            height: 50px
+            top: 30px
+            right: 30px
+            background: #73635D
+            .eyes
+                width: 50px
+                height: 10px
+                margin: 10px 0 0 10px
+                %eye
+                    position absolute
+                    width: 10px
+                    height: 10px
+                    background: white
+                    border-radius: 50%
+                .eye-left
+                    @extend %eye
+                    float: left
+                    left: 10px
+                .eye-right
+                    @extend %eye
+                    float: right
+                    right: 10px
+
+            .mouth
+                width: 40px
+                height: 4px
+                margin: 7px 0 0 15px
+                background: white
+                border-radius: 4px
+            .directional-wheel
+                width: 30px
+                height: 10px
+                border-top-left-radius: 30px
+                border-top-right-radius: 30px
+                background: #333
+                margin: 8px 0 0 33px
+        .ears
+            position: relative
+            width: 70px
+            height: 19px
+            float: right
+            top: 15px
+            left: 40px
+            .ear-left
+                width: 0
+                height: 0
+                border-left: 0 solid transparent
+                border-right: 16px solid transparent
+                border-top: 0 solid transparent
+                border-bottom: 15px solid #73635D
+                float: left
+            .ear-right
+                width: 0
+                height: 0
+                border-left: 16px solid transparent
+                border-right: 0 solid transparent
+                border-top: 0 solid transparent
+                border-bottom: 15px solid #73635D
+                float: right
+    .side-mirrors
+        position: absolute
+        width: 344px
+        height: 30px
+        bottom: 143px
+        left: 20px
+        z-index: 3
+        +keyframes(moveSideMirrors)
+            0%
+                bottom: 143px
+            50%
+                bottom: 148px
+            100%
+                bottom: 137px
+        animation: moveSideMirrors 1s infinite alternate
+        %mirror
+            width: 30px
+            height: 30px
+            background: #333
+            border-radius: 5px
+        .mirror-left
+            @extend %mirror
+            float: left
+        .mirror-right
+            @extend %mirror
+            float: right

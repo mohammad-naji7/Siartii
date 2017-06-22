@@ -1,0 +1,149 @@
+
+*
+    font-family: Futura, "Trebuchet MS", Arial, sans-serif
+
+body
+    background: url('../imgs/bg.png')
+    position: relative
+
+.container
+    margin-left: auto
+    margin-right: auto
+    padding: 0 15px
+    box-sizing: border-box
+
+
+@import navBar
+@import presentingArea
+@import movingCar
+@import statisticalArea
+@import footer
+
+@media (min-width: 1px)
+    body
+        min-height: 1100px
+    .container
+        width: 100%
+    .nav-bar
+        width: 100%
+        height: ((($numberOfNavLinks/2)+1) * $navHidght)+45
+        .brand-name
+            margin-left: 50%
+            transform: translate(-50%, 0)
+            float: none
+        ul
+            display: flex
+            flex-wrap: wrap
+            float: none
+            box-sizing: border-box
+            li
+                width: 49%
+                text-align: center
+                border-bottom: 2px solid #DDD
+                &:nth-child(odd)
+                    border-right: 2px solid #DDD
+                &:nth-child(even)
+                    border-left: 2px solid #DDD
+    .presenting-area 
+        width: 90%
+        margin-top: calc(45vh + #{$navHidght}) 
+        .container
+            .from-selection
+                width: 37%
+            .features
+            $features: one two three
+            @each $feature in $features
+                .feature-#{$feature}
+                    width: 26% !important
+                    
+    .moving-car
+        display: none  
+    .statistics-area
+        width: 70%
+        display: block
+        margin: auto
+        float: initial
+        clear: both
+        margin: 40px auto
+
+@media (min-width: 768px)
+    body
+        min-height: 1500px
+    .nav-bar
+        height: $navHidght
+        .brand-name
+            margin-left: initial
+            transform: translate(0, 0) 
+            float: left
+        ul
+            display: -webkit-inline-flex
+            float: right
+            flex-wrap: initial
+            li
+                width: initial
+                text-align: initial
+                border-bottom: initial
+                &:nth-child(odd)
+                    border-right: initial
+                &:nth-child(even)
+                    border-left: initial
+    .presenting-area 
+        margin-top: calc(15vh + #{$navHidght}) 
+        .container
+            .from-selection
+                width: 40%
+            .features
+                $features: one two three
+                @each $feature in $features
+                    .feature-#{$feature}
+                        width: 31% !important
+    .swapation-content
+        display: -webkit-box
+        -webkit-box-orient: vertical
+        .moving-car
+            -webkit-box-ordinal-group: 2
+    .moving-car
+        display: block
+        width: 50%
+        margin-left: 50%
+        transform: translate(-50%, 0)
+
+@media (min-width: 856px)
+    body
+        min-height: 1000px
+    .moving-car
+        display: block
+        width: 35%
+        min-width: 500px
+        margin: 0 auto 150px auto
+        transform: translate(0, 0) 
+        float: none
+    .statistics-area
+        margin: 60px auto 100px auto
+        clear: none
+        
+@media (min-width: 992px)
+    body
+        min-height: 1100px
+    .container
+        width: 70%
+    .presenting-area 
+        width: 70%
+    .swapation-content
+        display: block
+    .moving-car
+        display: inline-block
+        margin: 40px 0 100px 5%
+        float: left
+    .statistics-area
+        display: inline-block
+        margin: 60px 5% 100px 0
+        width: 30%
+        float: right
+
+@media (min-width: 1200px)
+    .moving-car
+        margin: 40px 0 100px 8%
+    .statistics-area
+        margin: 60px 8% 100px 0
+        width: 35%

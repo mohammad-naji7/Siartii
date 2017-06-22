@@ -1,0 +1,65 @@
+@import vars
+
+.nav-bar
+    display: block
+    position: fixed
+    top: 0
+    left: 0
+    height: $navHidght
+    box-shadow: 0 0 20px 0 $fontColor
+    border-bottom: 2px solid $mainColor
+    background-color: $seconderyColor
+    transition: top 0.5s ease-in-out
+    z-index: 6
+    a
+        color: $fontColor
+        text-decoration: none
+
+    .brand-name
+        display: -webkit-inline-flex
+        float: left
+        padding: 25px 10px
+        font-size: 25px
+        letter-spacing: 5px
+        word-spacing: 5px
+        a
+            &:hover
+                color: $thirdColor
+        .fa
+            text-shadow: 1px 1px white, -1px -1px #666
+    ul
+        display: -webkit-inline-flex
+        float: right
+        margin-top: 0
+        li
+            display: block
+            a
+                display: -webkit-inline-flex
+                line-height: $navHidght
+                border-top: 4px solid $seconderyColor
+                padding: 0 10px
+                letter-spacing: 2px
+                &:hover
+                    border-top: 4px solid $mainColor
+                    transition: border-top ease-in-out 0.3s
+    .toggle-triangle
+        $buttonDimensions: 30px
+        @extend %centerElement
+        width: 0
+        height: 0
+        color: white
+        top: calc(100% + #{$buttonDimensions}) 
+        border-top: $buttonDimensions solid $mainColor
+        border-right: $buttonDimensions solid transparent
+        border-bottom: $buttonDimensions solid transparent
+        border-left: $buttonDimensions solid transparent
+        &:before
+            content: "\f107"
+            font-family: "FontAwesome"
+            font-size: $buttonDimensions + 20
+            position: relative
+            top: -$buttonDimensions - ($buttonDimensions/2)
+            left: (-$buttonDimensions/2) - 1
+        &:hover
+            color: rgba(0, 0, 0, 0.4)
+            transition: border-top ease-in-out 0.3s

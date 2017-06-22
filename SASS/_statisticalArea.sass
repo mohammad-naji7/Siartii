@@ -1,0 +1,26 @@
+@import vars
+
+.statistics-area
+    $statistics: (one: #81c784, two: #fdc047, three: #156983)
+    width: 35%
+    height: 300px
+    background: rgba(107,168,187,0.6)
+    color: white
+    padding: 40px
+    @each $statistic, $color in $statistics
+        .statistic-#{$statistic}
+            width: 31%
+            height: 140px
+            display: inline-block
+            background: $color
+            color: white
+            font-size: 20px
+            text-align: center
+            span
+                display: block
+                font-size: 40px
+                width: 100%
+                margin-top: 20%
+    p
+        span
+            color: red

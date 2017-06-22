@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <title>Siartii</title>
+    <link rel="stylesheet" href="./css/normalize.css">
+    <link rel="stylesheet" href="./bower_components/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="./css/index.css">
+
+    <link type="text/css" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700">
+  </head>
+  <body>
+
+    <div id="nav-bar" class="nav-bar">
+      <div class="container">
+        <div class="brand-name">
+          <a href="#">SIARTII	<i class="fa fa-car"></i></a>
+        </div>
+        <ul>
+          <li class="nav-link"><a href="#">Main</a></li>
+          <li class="nav-link"><a href="#">Services</a></li>
+          <li class="nav-link"><a href="#">Contact Us</a></li>
+          <li class="nav-link"><a href="#">Others</a></li>
+        </ul>
+      </div>
+      <div class="toggle-triangle" onclick="toggleNavBar();"></div>
+    </div>
+
+    <div class="modal" id="map-modal">
+      <div class="modal-container">
+        <h2>Map <a href="#">X</a></h2>
+        <div class="modal-content">
+          <div id="map"></div>
+        </div>
+        <div class="modal-footer">
+          <a href="#">Let's Ride</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="presenting-area">
+      <div class="container">
+        <div class="selection-area">
+          <h1>Get a ride</h1>
+          <div class="from-selection">
+           <span>From:</span> 
+           <Select id="start" onchange="calcRoute();">
+             <option value="Jenin">Jenin</option>
+             <option value="Nablus">Nablus</option>
+           </Select>
+          </div>
+          <div class="map-viewer">
+           <a id="goRoute" href="#map-modal"><span>&nbsp;</span></a>
+          </div>
+          <div class="to-selection">
+           <span>To:</span> 
+           <Select id="end" onchange="calcRoute();">
+             <option value="Jenin">Jenin</option>
+             <option value="Nablus">Nablus</option>
+           </Select>
+          </div>
+          <button class="get-results">Let's Ride <i class="fa fa-road"></i></button>
+        </div>
+        <hr>
+        <div class="features">
+          <div class="feature-one">
+            <h3>
+              Feature 1
+              <p>
+                Stop travelling alone! Save money by taking passengers on your long car journeys.
+              </p>
+            </h3>
+          </div>
+          <div class="feature-two">
+            <h3>
+              Feature 2
+              <p>
+                Easily book your seat and travel from city A to city B for much less, even at the last minute!
+              </p>
+            </h3>
+          </div>
+          <div class="feature-three">
+            <h3>
+              Feature 3
+              <p>
+                Verified profiles with member ratings create a trustworthy community.
+              </p>
+            </h3>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="swapation-content">
+      <div class="moving-car">
+        <div class="ground"></div>
+        <div class="sign">
+          <div class="square"></div>
+          <div class="prop"></div>
+        </div>
+        <div class="sun"></div>
+        <div class="wheels">
+          <div class="wheel-left"></div>
+          <div class="wheel-right"></div>
+        </div>
+        <div class="car-body">
+          <div class="lights">
+            <div class="light-left"></div>
+            <div class="light-right"></div>
+          </div>
+          <div class="indicators">
+            <div class="indicator-left"></div>
+            <div class="indicator-right"></div>
+          </div>
+        </div>
+        <div class="car-upper">
+          <div class="driver-mirror"></div>
+          <div class="buddy">
+            <div class="eyes">
+              <div class="eye-left"></div>
+              <div class="eye-right"></div>
+            </div>
+            <div class="mouth"></div>
+            <div class="directional-wheel"></div>
+          </div>
+          <div class="ears">
+              <div class="ear-left"></div>
+              <div class="ear-right"></div>
+            </div>
+        </div>
+        <div class="side-mirrors">
+          <div class="mirror-left"></div>
+          <div class="mirror-right"></div>
+        </div>
+      </div>
+
+      <div class="statistics-area">
+        <h2>Statistical Info</h2>
+        <div class="statistic-one"><span>560</span>User</div>
+        <div class="statistic-two"><span>85</span>Driver</div>
+        <div class="statistic-three"><span>130</span>Trip</div>
+        <p><span>*</span> These statistics shows our success in the market and you can trust us to travel comfortably.</p>
+      </div>
+    </div>
+
+    <div class="footer">
+      <div class="copyright">Copyright © Hanysheh:p, All Rights Reserved.</div>
+      <div class="socialmedi-links">
+        <a class="social-facebook"><i class="fa fa-facebook"></i></a>
+        <a class="social-twitter"><i class="fa fa-twitter"></i></a>
+        <a class="social-youtube"><i class="fa fa-youtube"></i></a>
+        <a class="social-linkedin"><i class="fa fa-linkedin"></i></a>
+      </div>
+    </div>
+
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB5QK7XOnWsABoalzf1zKEUoRCCmJku-kE&signed_in=true&callback=initMap" async defer></script>
+    <script src="./js/index.js"></script>
+
+  </body>
+</html>
